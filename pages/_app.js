@@ -10,6 +10,7 @@ import lightTheme from '../styles/theme/lightTheme';
 import '../styles/globals.css';
 import Link from 'next/link';
 import { createTheme } from '@mui/material/styles';
+import DetectScreenWidth from '@/utility/detectScreenWidth';
 
 
 const clientSideEmotionCache = createEmotionCache();
@@ -23,23 +24,23 @@ function App(props) {
     <ThemeProvider theme={lightTheme}>
       <CssBaseline />
       <header>
-        <Grid container spacing={1}>
+        <Grid container spacing={2} alignItems="center" justifyContent="center" border={'1px solid red'}>
 
-          <Grid item container spacing={1} xs={6} sm={6}>
-            <Grid item xs={5} sm={5} md={4} lg={3} xl={4} >
+          <Grid item container spacing={2} xs={6} sm={6} md={4} lg={3} alignItems="center" justifyContent="flex-start" border={'1px solid green'}>
+            <Grid item xs={5} sm={5} md={5} lg={5} xl={5}>
               <Link href='/'>
                 <p id='headBar_phone' className='headBar_text'>
                   <PhoneIcon className='headBar_text_icon' fontSize='0.9em'></PhoneIcon>
                   <span>
-                    012335456
+                    0334466664
                   </span>
                 </p>
               </Link>
             </Grid>
-            <Grid item xs={5} sm={5} md={4} lg={5}>
+            <Grid item xs={5} sm={7} md={7} lg={7}>
                 <Link href='/'>
                   <p id='headBar_mail' className='headBar_text'>
-                    <MailIcon className='' fontSize='0.9em'></MailIcon>
+                    <MailIcon className='headBar_text_icon' fontSize='1.4em'></MailIcon>
                     <span>
                       info@gaiacosmetics.vn
                     </span>
@@ -48,22 +49,22 @@ function App(props) {
             </Grid>
           </Grid>
 
-          <Grid item container spacing={1} xs={6} sm={6}>
-            <Grid item sm={4}>
+          <Grid container item spacing={2} xs={6} sm={4} md={4} lg={4} alignItems="center" justifyContent="flex-end" border={'1px solid yellow'}>
+            <Grid item sm={3}>
               <Link href='/'>
                 <p className='headBar_text'>
                   Hệ thống cửa hàng
                 </p>
               </Link>
             </Grid>
-            <Grid item sm={4}>
+            <Grid item sm={3}>
               <Link href='/'>
                 <p className='headBar_text'>
                   Theo dõi đơn hàng
                 </p>
               </Link>
             </Grid>
-            <Grid item sm={4}>
+            <Grid item sm={2}>
               <Link href='/'>
                 <p className='headBar_text'>
                   Tài khoản
@@ -76,14 +77,14 @@ function App(props) {
         <style jsx>
           {`
             .headBar_text {
-              font-size: 0.9em;
+              font-size: 1em;
               display: flex;
               align-items: center;
               padding: 6px 2px;
             }
 
             .headBar_text_icon {
-              
+              font-size: 
             }
 
             .headBar_text > span {
