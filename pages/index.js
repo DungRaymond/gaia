@@ -12,7 +12,7 @@ export default function Home() {
         <title>Create Next App</title>
         <meta name="description" content="Gaia Cosmeceuticals" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/gaia-website-favicon-color.ico" type="image/gif" sizes='16x16' />
+        <link rel="icon" href="/favicon.ico" type="image/gif" sizes='32x32' />
       </Head>
       <main className={styles.main}>
         <h1> build </h1>
