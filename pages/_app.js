@@ -95,6 +95,10 @@ function App(props) {
                 .headBar_text > span {
                   
                 }
+
+                header {
+                  background-color: rgba(80,95,154,0.4);
+                }
               `}
             </style>
           </header>
