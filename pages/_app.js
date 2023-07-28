@@ -56,7 +56,7 @@ function App(props) {
 
               <Grid container item spacing={2} xs={6} sm={4} md={4} lg={4} alignItems="center" justifyContent="flex-end" border={'1px solid yellow'}>
                 <Grid item sm={3}>
-                  <Link href='/'>
+                  <Link href='/stores'>
                     <p className='headBar_text'>
                       Hệ thống cửa hàng
                     </p>
