@@ -1,6 +1,6 @@
 import * as React from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import StoresBrowserView from '@/views/browsers/BrowserStores';
+import StoresBrowserView from '@/views/browsers/Stores';
 
 export default function Stores() {
   const matches = useMediaQuery('(min-width:600px)');
