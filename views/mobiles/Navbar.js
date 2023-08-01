@@ -8,7 +8,6 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Image from 'next/image';
 
 export default function NavbarMobileView() {
-
   return(
     <>
       <Grid container spacing={0} alignContent={"center"} alignItems="center" justifyContent="center" id="navbar-mobile">

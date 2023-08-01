@@ -96,7 +96,7 @@ function App(props) {
   
                   header {
                     background-color: rgba(80,95,154,0.4);
-                    // background-color: transparent;
+                    background-color: transparent;
                     height: 58px;
                     line-height: 1;
                   }
