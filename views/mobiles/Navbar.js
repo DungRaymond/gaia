@@ -11,14 +11,14 @@ export default function NavbarMobileView() {
 
   return(
     <>
-      <Grid container spacing={0} alignItems="center" justifyContent="center" id="navbar-mobile">
+      <Grid container spacing={0} alignContent={"center"} alignItems="center" justifyContent="center" id="navbar-mobile">
     
         <Grid container item xs={1} justifyContent={"center"} >
           <button onClick={(e) => {
             e.preventDefault();
             alert('cool')
           }}>
-            <MenuIcon>
+            <MenuIcon sx={{fontSize: 24}}>
 
             </MenuIcon>
           </button>
@@ -28,9 +28,10 @@ export default function NavbarMobileView() {
 
         </Grid>
 
-        <Grid container item xs={2} id="navbar-mobile-logo" justifyContent={"center"} >
+        <Grid container item spacing={0} xs={2} id="navbar-mobile-logo" justifyContent={"center"} >
           <Link href={''}>
-            <Image width={50} height={50} style={{padding: 'auto 0'}} alt='navbar-logo' src={"/gaia-high-resolution-logo-color-on-transparent-background.png"} />
+            {/* <Image width={50} height={50} style={{padding: 'auto 0'}} alt='navbar-logo' src={"/gaia-high-resolution-logo-color-on-transparent-background.png"} /> */}
+            <Image width={132} height={58} style={{padding: 'auto 0'}} alt='navbar-logo' src={"/gaia_teal.jpg"} />
           </Link>
         </Grid>
 
@@ -40,7 +41,7 @@ export default function NavbarMobileView() {
 
         <Grid container item xs={1} justifyContent={"center"}>
           <Link href={'/cart'}>
-              <ShoppingCartIcon>
+              <ShoppingCartIcon sx={{fontSize: 24}}>
 
               </ShoppingCartIcon>
           </Link>
@@ -59,7 +60,7 @@ export default function NavbarMobileView() {
           outline: none;
           background-color: transparent;
           border: none;
-          color: 
+          color: black;
         }
         #navbar-mobile > a {
           height: 50px;

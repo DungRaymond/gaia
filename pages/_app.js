@@ -36,33 +36,30 @@ function App(props) {
             <header>
               <DynamicBrowserHeaderNavbar />
   
-              <style jsx>
-                {`
-                  .headBar_text {
-                    font-size: 1em;
-                    display: flex;
-                    align-items: center;
-                    padding: 6px 2px;
-                  }
-  
-                  .headBar_text_icon {
-                    font-size: 
-                  }
-  
-                  .headBar_text > span {
-                    
-                  }
-  
-                  header {
-                    background-color: rgba(80,95,154,0.4);
-                  }
-                `}
-              </style>
             </header>
             <Component {...pageProps} />
             <footer>
               <h1>this is footer</h1>
             </footer>
+            <style jsx>
+              {`
+                .headBar_text {
+                  font-size: 1em;
+                  display: flex;
+                  align-items: center;
+                  padding: 6px 2px;
+                }
+
+                .headBar_text_icon {
+                  
+                }
+
+                .headBar_text > span {
+                  
+                }
+                
+              `}
+            </style>
           </ThemeProvider>
         </CacheProvider>
       </>
@@ -99,6 +96,9 @@ function App(props) {
   
                   header {
                     background-color: rgba(80,95,154,0.4);
+                    // background-color: transparent;
+                    height: 58px;
+                    line-height: 1;
                   }
                 `}
               </style>
