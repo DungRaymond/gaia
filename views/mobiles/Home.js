@@ -1,6 +1,6 @@
 import { Grid, Paper, Slide, Typography, Button, Box } from "@mui/material";
 import Image from 'next/image'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 export default function HomeMobileView() {
   const bannerList = [
@@ -9,51 +9,71 @@ export default function HomeMobileView() {
     '/banner/banner3.jpg'
   ]
   const containerRef = useRef(null);
+
+  const banner = (bpath) => {
+    return (
+      <Paper sx={{ m: 1 }} elevation={4}>
+        <Box sx={{
+            width: `calc(100vw - 6px)`,
+            height: `calc(100vw/2)`,
+            position: 'relative',
+            margin: 0,
+            padding: 0
+        }}>
+          <Image fill alt='banner' src={bannerList[bpath]} />
+        </Box>
+      </Paper>
+    );
+
+  } 
+
+  const [slide1, setSlide1] = useState(true);
+  const [slide2, setSlide2] = useState(false);
+  const [slide3, setSlide3] = useState(false);
+  const [bannerPath, setBannerPath] = useState(bannerList[0])
   return (
     <>
-      <Grid container fluid justifyContent={"center"} alignItems={"center"}>
-          <Paper ref={containerRef} sx={{ overflow: "hidden" }}>
-            <Grid container direction="column" spacing={2}>
-              <Grid container item>
-                <Slide
-                  direction="left"
-                  container={containerRef.current}
-                  mountOnEnter
-                  unmountOnExit
-                >
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      width: 380,
-                      height: 160,
-                      bgcolor: "pink"
-                    }}
-                  >
-                    <Button onClick={() => setIsPink(false)}>show aquamarine</Button>
-                  </Box>
-                </Slide>
-                <Slide
-                  direction="right"
-                  container={containerRef.current}
-                  mountOnEnter
-                  unmountOnExit
-                >
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      width: 150,
-                      height: 150,
-                      bgcolor: "aquamarine"
-                    }}
-                  >
-                    <Button onClick={() => setIsPink(true)}>show pink</Button>
-                  </Box>
-                </Slide>
-              </Grid>
-            </Grid>
-          </Paper>
-      </Grid>
+      
 
+        <Box sx={{
+            width: `calc(100vw)`,
+            height: `calc(100vw/2)`,
+            position: 'relative',
+            display: 'flex',
+            overflow: 'hidden',
+            justifyContent: 'center'
+        }}>
+          <Slide direction="right" timeout={600} in={slide1} mountOnEnter unmountOnExit addEndListener={() => {
+            setTimeout(() => {
+              
+                setSlide1(!slide1);
+                setSlide2(!slide2);
+
+            }, 2000);
+          }}>
+              {banner(0)}
+          </Slide>
+          {/* <Slide direction="right" timeout={600} in={slide2} mountOnEnter unmountOnExit addEndListener={() => {
+            setTimeout(() => {
+                setSlide2(!slide2)
+                setSlide3(!slide3)
+
+            }, 2000);
+          }}>
+              {banner(1)}
+          </Slide> */}
+          {/* <Slide direction="left" in={slide3} mountOnEnter unmountOnExit addEndListener={() => {
+            setTimeout(() => {
+                setSlide3(!slide3)
+                setSlide1(!slide1)
+
+            }, 2000);
+          }}>
+              {banner(2)}
+          </Slide> */}
+
+        </Box>
+      
     </>
   )
 }
