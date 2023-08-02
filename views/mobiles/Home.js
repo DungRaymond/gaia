@@ -35,7 +35,7 @@ export default function HomeMobileView() {
     <>
       
 
-        <Box sx={{
+        <Box ref={containerRef} sx={{
             width: `calc(100vw)`,
             height: `calc(100vw/2)`,
             position: 'relative',
@@ -43,7 +43,7 @@ export default function HomeMobileView() {
             overflow: 'hidden',
             justifyContent: 'center'
         }}>
-          <Slide direction="right" timeout={600} in={slide1} mountOnEnter unmountOnExit addEndListener={() => {
+          <Slide direction="right" in={slide1} mountOnEnter container={containerRef.current} unmountOnExit addEndListener={() => {
             setTimeout(() => {
               
                 setSlide1(!slide1);
@@ -53,7 +53,7 @@ export default function HomeMobileView() {
           }}>
               {banner(0)}
           </Slide>
-          {/* <Slide direction="right" timeout={600} in={slide2} mountOnEnter unmountOnExit addEndListener={() => {
+          <Slide direction="right" in={slide2} mountOnEnter container={containerRef.current} unmountOnExit addEndListener={() => {
             setTimeout(() => {
                 setSlide2(!slide2)
                 setSlide3(!slide3)
@@ -61,7 +61,7 @@ export default function HomeMobileView() {
             }, 2000);
           }}>
               {banner(1)}
-          </Slide> */}
+          </Slide>
           {/* <Slide direction="left" in={slide3} mountOnEnter unmountOnExit addEndListener={() => {
             setTimeout(() => {
                 setSlide3(!slide3)
