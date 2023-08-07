@@ -65,6 +65,7 @@ function App(props) {
       </>
     )
   } else {
+    // mobile view here
     return(
       <>
         <Head>
@@ -79,25 +80,10 @@ function App(props) {
   
               <style jsx>
                 {`
-                  .headBar_text {
-                    font-size: 1em;
-                    display: flex;
-                    align-items: center;
-                    padding: 6px 2px;
-                  }
-  
-                  .headBar_text_icon {
-                    font-size: 
-                  }
-  
-                  .headBar_text > span {
-                    
-                  }
-  
                   header {
                     background-color: rgba(80,95,154,0.4);
                     background-color: transparent;
-                    height: 58px;
+                    height: 42px;
                     line-height: 1;
                   }
                 `}

@@ -45,11 +45,13 @@ export default function HomeMobileView() {
             ref={containerRef}
             sx={{
               width: `calc(100vw)`,
-              height: `calc(100vw/2)`,
+              height: `calc(100vw/2 + 12px)`,
               position: 'relative',
               display: 'flex',
               overflow: 'hidden',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              padding: 0,
+              margin: 0
         }}>
           <Slide direction="up" in={slide == 1 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit addEndListener={switchSlide}>
               {banner(0)}
