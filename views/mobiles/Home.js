@@ -1,6 +1,6 @@
 import { Grid, Paper, Slide, Typography, Button, Box } from "@mui/material";
 import Image from 'next/image'
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useCallback } from 'react'
 
 export default function HomeMobileView() {
   const bannerList = [
@@ -49,13 +49,13 @@ export default function HomeMobileView() {
             overflow: 'hidden',
             justifyContent: 'center'
         }}>
-          <Slide direction="up" in={slide == 1 && true} timeout={{appear: 0, enter: 500, exit: 0}} container={containerRef.current} mountOnEnter unmountOnExit>
+          <Slide direction="up" in={slide == 1 && true} timeout={{appear: 0, enter: 500, exit: 0}} container={containerRef.current} mountOnEnter unmountOnExit placeholder="blur">
               {banner(0)}
           </Slide>
-          <Slide direction="up" in={slide == 2 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit>
+          <Slide direction="up" in={slide == 2 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit placeholder="blur">
               {banner(1)}
           </Slide>
-          <Slide direction="up" in={slide == 3 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit>
+          <Slide direction="up" in={slide == 3 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit placeholder="blur">
               {banner(2)}
           </Slide>
 
