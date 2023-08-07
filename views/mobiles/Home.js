@@ -20,7 +20,7 @@ export default function HomeMobileView() {
             margin: 0,
             padding: 0
         }}>
-          <Image fill alt='banner' src={bannerList[bpath]} />
+          <Image fill alt='banner' placeholder="blur" src={bannerList[bpath]} />
         </Box>
       </Paper>
     );
@@ -28,34 +28,36 @@ export default function HomeMobileView() {
   } 
 
   const [slide, setSlide] = useState(1);
-  useEffect(() => {
-    setInterval(() => {
+  const switchSlide = useCallback(() => {
+    setTimeout(() => {
       if(slide == 3) {
         setSlide(slide - 2)
       } else {
         setSlide(slide + 1)
       }
     }, 3500)
-  })
+  }, [])
   return (
     <>
       
 
-        <Box ref={containerRef} sx={{
-            width: `calc(100vw)`,
-            height: `calc(100vw/2)`,
-            position: 'relative',
-            display: 'flex',
-            overflow: 'hidden',
-            justifyContent: 'center'
+        <Box 
+            ref={containerRef}
+            sx={{
+              width: `calc(100vw)`,
+              height: `calc(100vw/2)`,
+              position: 'relative',
+              display: 'flex',
+              overflow: 'hidden',
+              justifyContent: 'center'
         }}>
-          <Slide direction="up" in={slide == 1 && true} timeout={{appear: 0, enter: 500, exit: 0}} container={containerRef.current} mountOnEnter unmountOnExit placeholder="blur">
+          <Slide direction="up" in={slide == 1 && true} timeout={{appear: 0, enter: 500, exit: 0}} container={containerRef.current} mountOnEnter unmountOnExit addEndListener={switchSlide}>
               {banner(0)}
           </Slide>
-          <Slide direction="up" in={slide == 2 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit placeholder="blur">
+          <Slide direction="up" in={slide == 2 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit addEndListener={switchSlide}>
               {banner(1)}
           </Slide>
-          <Slide direction="up" in={slide == 3 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit placeholder="blur">
+          <Slide direction="up" in={slide == 3 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit addEndListener={switchSlide}>
               {banner(2)}
           </Slide>
 
