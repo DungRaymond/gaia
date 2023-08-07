@@ -20,7 +20,7 @@ export default function HomeMobileView() {
             margin: 0,
             padding: 0
         }}>
-          <Image fill alt='banner' placeholder="blur" src={bannerList[bpath]} />
+          <Image fill alt='banner' src={bannerList[bpath]} />
         </Box>
       </Paper>
     );
@@ -28,7 +28,7 @@ export default function HomeMobileView() {
   } 
 
   const [slide, setSlide] = useState(1);
-  const switchSlide = useCallback(() => {
+  const switchSlide = () => {
     setTimeout(() => {
       if(slide == 3) {
         setSlide(slide - 2)
@@ -36,7 +36,7 @@ export default function HomeMobileView() {
         setSlide(slide + 1)
       }
     }, 3500)
-  }, [])
+  }
   return (
     <>
       
@@ -51,7 +51,7 @@ export default function HomeMobileView() {
               overflow: 'hidden',
               justifyContent: 'center'
         }}>
-          <Slide direction="up" in={slide == 1 && true} timeout={{appear: 0, enter: 500, exit: 0}} container={containerRef.current} mountOnEnter unmountOnExit addEndListener={switchSlide}>
+          <Slide direction="up" in={slide == 1 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit addEndListener={switchSlide}>
               {banner(0)}
           </Slide>
           <Slide direction="up" in={slide == 2 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit addEndListener={switchSlide}>
