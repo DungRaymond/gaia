@@ -1,6 +1,6 @@
 import { Grid, Paper, Slide, Typography, Button, Box } from "@mui/material";
 import Image from 'next/image'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
 export default function HomeMobileView() {
   const bannerList = [
@@ -27,10 +27,16 @@ export default function HomeMobileView() {
 
   } 
 
-  const [slide1, setSlide1] = useState(true);
-  const [slide2, setSlide2] = useState(false);
-  const [slide3, setSlide3] = useState(false);
-  const [bannerPath, setBannerPath] = useState(bannerList[0])
+  const [slide, setSlide] = useState(1);
+  useEffect(() => {
+    setInterval(() => {
+      if(slide == 3) {
+        setSlide(slide - 2)
+      } else {
+        setSlide(slide + 1)
+      }
+    }, 3500)
+  })
   return (
     <>
       
@@ -43,34 +49,15 @@ export default function HomeMobileView() {
             overflow: 'hidden',
             justifyContent: 'center'
         }}>
-          <Slide direction="right" in={slide1} mountOnEnter container={containerRef.current} unmountOnExit addEndListener={() => {
-            setTimeout(() => {
-              
-                setSlide1(!slide1);
-                setSlide2(!slide2);
-
-            }, 2000);
-          }}>
+          <Slide direction="up" in={slide == 1 && true} timeout={{appear: 0, enter: 500, exit: 0}} container={containerRef.current} mountOnEnter unmountOnExit>
               {banner(0)}
           </Slide>
-          <Slide direction="right" in={slide2} mountOnEnter container={containerRef.current} unmountOnExit addEndListener={() => {
-            setTimeout(() => {
-                setSlide2(!slide2)
-                setSlide3(!slide3)
-
-            }, 2000);
-          }}>
+          <Slide direction="up" in={slide == 2 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit>
               {banner(1)}
           </Slide>
-          {/* <Slide direction="left" in={slide3} mountOnEnter unmountOnExit addEndListener={() => {
-            setTimeout(() => {
-                setSlide3(!slide3)
-                setSlide1(!slide1)
-
-            }, 2000);
-          }}>
+          <Slide direction="up" in={slide == 3 && true} container={containerRef.current} mountOnEnter timeout={{appear: 0, enter: 500, exit: 0}} unmountOnExit>
               {banner(2)}
-          </Slide> */}
+          </Slide>
 
         </Box>
       

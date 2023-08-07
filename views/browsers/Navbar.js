@@ -7,9 +7,9 @@ import MailIcon from '@mui/icons-material/Mail';
 export default function NavbarBrowserView() {
 
   return(
-    <Grid container spacing={2} alignItems="center" justifyContent="center" border={'1px solid red'}>
+    <Grid container spacing={0} alignItems="center" justifyContent="center">
   
-      <Grid item container spacing={2} xs={6} sm={6} md={4} lg={3} alignItems="center" justifyContent="flex-start" border={'1px solid green'}>
+      <Grid item container spacing={1} xs={6} sm={6} md={4} lg={3} alignItems="center" alignContent={'center'} justifyContent="flex-start" border={'1px solid green'}>
         <Grid item xs={5} sm={5} md={5} lg={5} xl={5}>
           <Link href='/'>
             <p id='headBar_phone' className='headBar_text'>
@@ -32,7 +32,7 @@ export default function NavbarBrowserView() {
         </Grid>
       </Grid>
 
-      <Grid container item spacing={2} xs={6} sm={4} md={4} lg={4} alignItems="center" justifyContent="flex-end" border={'1px solid yellow'}>
+      <Grid container item spacing={2} xs={6} sm={4} md={4} lg={4} alignItems="center" justifyContent="flex-end" border={'1px solid red'}>
         <Grid item sm={3}>
           <Link href='/stores'>
             <p className='headBar_text'>
