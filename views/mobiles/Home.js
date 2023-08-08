@@ -14,7 +14,7 @@ export default function HomeMobileView() {
     return (
       <Paper sx={{ m: 1 }} elevation={4}>
         <Box sx={{
-            width: `calc(100vw - 6px)`,
+            width: `calc(100vw)`,
             height: `calc(100vw/2)`,
             position: 'relative',
             margin: 0,
@@ -41,7 +41,7 @@ export default function HomeMobileView() {
     <>
       
 
-        <Box 
+        <Box id="here"
             ref={containerRef}
             sx={{
               width: `calc(100vw)`,
