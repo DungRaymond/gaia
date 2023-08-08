@@ -18,7 +18,7 @@ const DynamicMobileHome = dynamic(() => import('@/views/mobiles/Home'), {
 
 
 export default function Home() {
-  const matches = useMediaQuery('(max-width: 414px)')
+  const matches = useMediaQuery('(max-width: 896px)')
   if(!matches) {
     return (
       <>

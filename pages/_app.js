@@ -24,13 +24,13 @@ const DynamicMobileFooter = dynamic(() => import('@/views/mobiles/Footer'), {
 
 function App(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const matches = useMediaQuery('(max-width: 480px)')
+  const matches = useMediaQuery('(max-width: 896px)')
 
   if(!matches) {
     return (
       <>
         <Head>
-          <link rel="icon" href='/public/gaia-website-favicon-color.png' type='image' />
+          <link rel="icon" href='/favicon/android-chrome-512x512.png' type='image' />
         </Head>
       
         <CacheProvider value={emotionCache}>
@@ -72,7 +72,7 @@ function App(props) {
     return(
       <>
         <Head>
-          <link rel="icon" href='/public/gaia-website-favicon-color.png' type='image' />
+          <link rel="icon" href='/favicon/android-chrome-512x512.png' type='image' />
         </Head>
       
         <CacheProvider value={emotionCache}>
