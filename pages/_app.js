@@ -18,6 +18,9 @@ const DynamicBrowserHeaderNavbar = dynamic(() => import('@/views/browsers/Navbar
 const DynamicMobileHeaderNavbar = dynamic(() => import('@/views/mobiles/Navbar'), {
   loading: () => <p>Loading...</p>,
 })
+const DynamicMobileFooter = dynamic(() => import('@/views/mobiles/Footer'), {
+  loading: () => <p>Loading footer...</p>,
+})
 
 function App(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
@@ -91,7 +94,8 @@ function App(props) {
             </header>
             <Component {...pageProps} />
             <footer>
-              <h1>this is footer</h1>
+              {/* <DynamicMobileFooter _font={montserrat} /> */}
+              <DynamicMobileFooter />
             </footer>
           </ThemeProvider>
         </CacheProvider>
