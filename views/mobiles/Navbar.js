@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import { useRouter } from 'next/router'
 import Fade from '@mui/material/Fade';
 import Backdrop from '@mui/material/Backdrop';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 
 export default function NavbarMobileView() {
@@ -21,11 +22,11 @@ export default function NavbarMobileView() {
   const style = {
     position: 'absolute',
     top: '0',
-    left: '0',
-    width: `calc(60vw)`,
+    right: '0',
+    width: `calc(64vw)`,
     bgcolor: 'background.paper',
     boxShadow: 24,
-    p: 4,
+    padding: '24px',
   };
   
 
@@ -59,7 +60,7 @@ export default function NavbarMobileView() {
           >
             <Fade in={open}>
               <Box sx={style}>
-                <Grid container direction={'column'} alignItems={'flex-start'}>
+                <Grid container direction={'column'} alignItems={'flex-start'} justifyContent={'space-between'}>
                   <MenuButton href="/" router={router}>
                     <span>
                       Trang chủ
@@ -67,8 +68,24 @@ export default function NavbarMobileView() {
                   </MenuButton>
 
                   <MenuButton href="/about" router={router}>
-                    Giới Thiệu
+                    <span>
+                      Giới Thiệu
+                    </span>
                   </MenuButton>
+
+                  
+                  <MenuButton>
+                    <Grid container justifyContent={'space-between'}>
+                      <span>
+                        Sản Phẩm
+                      </span>
+                      <KeyboardArrowDownIcon xs={{fontSize: '2rem', marginLeft:'20px'}}>
+
+                      </KeyboardArrowDownIcon>
+
+                    </Grid>
+                  </MenuButton>
+                  
 
                 </Grid>
 
@@ -122,7 +139,7 @@ export default function NavbarMobileView() {
           display: flex;
           justify-self: center;
         }
-      
+
       `}
       </style>
     </>
@@ -133,17 +150,23 @@ function MenuButton (props) {
   return (
     <button className='menubtn' onClick={(event) => {
       event.preventDefault();
-      props.router.push(props.href)
+      if(props.router) {
+        props.router.push(props.href)
+      }
     }}>
       {props.children}
       <style jsx>{`
         .menubtn {
-          color: #35155D;
+          color: rgba(97, 103, 122, 0.9);
           background-color: transparent;
           outline: none;
           border: none;
-          font-weight: 600;
-          font-size: 2rem;
+          font-weight: 500;
+          font-size: 1.6rem;
+          font-family: 'Montserrat';
+          text-transform: uppercase;
+          padding-top: 16px;
+          margin-bottom: 4px;
         }
 
       `}</style>

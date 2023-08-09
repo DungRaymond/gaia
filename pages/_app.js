@@ -24,10 +24,44 @@ const DynamicMobileFooter = dynamic(() => import('@/views/mobiles/Footer'), {
 
 function App(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const matches = useMediaQuery('(max-width: 896px)')
+  const matches = useMediaQuery('(max-width: 896px)', {defaultMatches: true})
 
-  if(!matches) {
+  if(matches) {
     return (
+      <>
+        <Head>
+          <link rel="icon" href='/favicon/android-chrome-512x512.png' type='image' />
+        </Head>
+      
+        <CacheProvider value={emotionCache}>
+          <ThemeProvider theme={lightTheme}>
+            <CssBaseline />
+            <header>
+              <DynamicMobileHeaderNavbar />
+  
+              <style jsx>
+                {`
+                  header {
+                    background-color: rgba(80,95,154,0.4);
+                    background-color: transparent;
+                    height: 42px;
+                    line-height: 1;
+                  }
+                `}
+              </style>
+            </header>
+            <Component {...pageProps} />
+            <footer>
+              {/* <DynamicMobileFooter _font={montserrat} /> */}
+              <DynamicMobileFooter />
+            </footer>
+          </ThemeProvider>
+        </CacheProvider>
+      </>
+    )
+  } else {
+    // browser view here
+    return(
       <>
         <Head>
           <link rel="icon" href='/favicon/android-chrome-512x512.png' type='image' />
@@ -63,40 +97,6 @@ function App(props) {
                 
               `}
             </style>
-          </ThemeProvider>
-        </CacheProvider>
-      </>
-    )
-  } else {
-    // mobile view here
-    return(
-      <>
-        <Head>
-          <link rel="icon" href='/favicon/android-chrome-512x512.png' type='image' />
-        </Head>
-      
-        <CacheProvider value={emotionCache}>
-          <ThemeProvider theme={lightTheme}>
-            <CssBaseline />
-            <header>
-              <DynamicMobileHeaderNavbar />
-  
-              <style jsx>
-                {`
-                  header {
-                    background-color: rgba(80,95,154,0.4);
-                    background-color: transparent;
-                    height: 42px;
-                    line-height: 1;
-                  }
-                `}
-              </style>
-            </header>
-            <Component {...pageProps} />
-            <footer>
-              {/* <DynamicMobileFooter _font={montserrat} /> */}
-              <DynamicMobileFooter />
-            </footer>
           </ThemeProvider>
         </CacheProvider>
       </>
