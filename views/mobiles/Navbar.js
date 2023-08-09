@@ -40,7 +40,7 @@ export default function NavbarMobileView() {
             e.preventDefault();
             handleOpen();
           }}>
-            <MenuIcon sx={{fontSize: '1.8em'}}>
+            <MenuIcon sx={{fontSize: '2em'}}>
             <Modal
               open={open}
               onClose={handleClose}
@@ -79,7 +79,7 @@ export default function NavbarMobileView() {
             e.preventDefault();
             router.push('/cart')
           }}>
-              <ShoppingCartIcon sx={{fontSize: '1.8em'}}>
+              <ShoppingCartIcon sx={{fontSize: '2em'}}>
 
               </ShoppingCartIcon>
           </button>
