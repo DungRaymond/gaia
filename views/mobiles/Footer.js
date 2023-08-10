@@ -5,6 +5,7 @@ import { Nunito } from 'next/font/google'
 import FactoryIcon from '@mui/icons-material/Factory';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MailIcon from '@mui/icons-material/Mail';
+import { useRouter } from 'next/router'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -16,6 +17,7 @@ const nunito = Nunito({
 })
 
 export default function FooterMobileView(_font) {
+  const router = useRouter()
   return (
     <>
       <br/>
@@ -77,7 +79,78 @@ export default function FooterMobileView(_font) {
             </Typography>
           </Grid>
         </Grid>
+
+        <br/>
+
+        <Grid item sm={5} marginLeft={'2px'}>
+          <Typography id="footer-gaia-title" variant="h6" component="h4" fontSize={'0.95em'} fontWeight={700} className={nunito.className}>
+            CHÍNH SÁCH
+          </Typography>
+        </Grid>
+        <Grid item sm={5} marginLeft={'2px'}>
+          <FtButton href='policy/deliver' router={router}>
+          <span className={nunito.className}>
+              CHÍNH SÁCH giao hàng
+
+            </span>
+          </FtButton>
+        </Grid>
+        <Grid item sm={5} marginLeft={'2px'}>
+          <FtButton href='policy/payment' router={router}>
+            <span className={nunito.className}>
+              CHÍNH SÁCH THANH TOÁN
+
+            </span>
+
+          </FtButton>
+        </Grid>
+        <Grid item sm={5} marginLeft={'2px'}>
+          <FtButton href='policy/payment' router={router}>
+            <span className={nunito.className}>
+              CHÍNH SÁCH mua hàng
+
+            </span>
+          </FtButton>
+        </Grid>
+        <Grid item sm={5} marginLeft={'2px'}>
+          <FtButton href='policy/payment' router={router}>
+            <span className={nunito.className}>
+              CHÍNH SÁCH bảo mật
+
+            </span>
+          </FtButton>
+        </Grid>
       </Grid>
+      <br/>
+      <br/>
     </>
+  )
+}
+
+function FtButton (props) {
+  return (
+    <button className='ft_btn' onClick={(event) => {
+      event.preventDefault();
+      if(props.router) {
+        props.router.push(props.href)
+      }
+    }}>
+      {props.children}
+      <style jsx>{`
+        .ft_btn {
+          color: rgba(97, 103, 122, 0.9);
+          font-size: 0.9rem;
+          background-color: transparent;
+          outline: none;
+          border: none;
+          font-weight: 300;
+          font-family: 'Montserras';
+          text-transform: uppercase;
+          padding-top: 4px;
+          margin-bottom: 2px;
+        }
+
+      `}</style>
+    </button>
   )
 }
