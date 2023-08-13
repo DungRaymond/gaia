@@ -105,7 +105,7 @@ export default function FooterMobileView(_font) {
           </FtButton>
         </Grid>
         <Grid item sm={5} marginLeft={'2px'}>
-          <FtButton href='policy/payment' router={router}>
+          <FtButton href='policy/purchase' router={router}>
             <span className={nunito.className}>
               CHÍNH SÁCH mua hàng
 
@@ -113,7 +113,7 @@ export default function FooterMobileView(_font) {
           </FtButton>
         </Grid>
         <Grid item sm={5} marginLeft={'2px'}>
-          <FtButton href='policy/payment' router={router}>
+          <FtButton href='policy/security' router={router}>
             <span className={nunito.className}>
               CHÍNH SÁCH bảo mật
 

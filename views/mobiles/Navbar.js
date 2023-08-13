@@ -10,6 +10,13 @@ import { useRouter } from 'next/router'
 import Fade from '@mui/material/Fade';
 import Backdrop from '@mui/material/Backdrop';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { Montserrat } from 'next/font/google';
+
+
+const mont = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 
 export default function NavbarMobileView() {
@@ -62,13 +69,13 @@ export default function NavbarMobileView() {
               <Box sx={style}>
                 <Grid container direction={'column'} alignItems={'flex-start'} justifyContent={'space-between'}>
                   <MenuButton href="/" router={router}>
-                    <span>
+                    <span className={mont.className}>
                       Trang chủ
                     </span>
                   </MenuButton>
 
                   <MenuButton href="/about" router={router}>
-                    <span>
+                    <span className={mont.className}>
                       Giới Thiệu
                     </span>
                   </MenuButton>
@@ -76,7 +83,7 @@ export default function NavbarMobileView() {
                   
                   <MenuButton>
                     <Grid container justifyContent={'space-between'}>
-                      <span>
+                      <span className={mont.className}>
                         Sản Phẩm
                       </span>
                       <KeyboardArrowDownIcon xs={{fontSize: '2rem', marginLeft:'20px'}}>
