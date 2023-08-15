@@ -1,7 +1,13 @@
-export default function Page() {
-  const cartData = localStorage.getItem('shopping')
+import { useEffect } from "react"
 
-  return {
+export default function Page() {
+
+  useEffect(() => {
+    const cartData = localStorage.getItem('shopping')
+  
+    return {
+      
+    }
     
-  }
+  })
 }

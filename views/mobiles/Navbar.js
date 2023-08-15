@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Button, Grid, Typography, Accordion } from "@mui/material"
-import Link from 'next/link';
+import { Grid } from "@mui/material"
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Image from 'next/image';
